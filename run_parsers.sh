@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Provided by Matt Allen (https://gist.github.com/Matt343/2559f0158af15943d0de)
+
 # Function to error and exit
 echoerr() { cat <<< "$@" 1>&2; exit 1; }
 
