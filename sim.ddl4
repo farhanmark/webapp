@@ -2,7 +2,7 @@ drop view s_project_emp;
 drop view s_manager;
 
 create view s_project_emp as
-SELECT person_id, name, ssnum, gender, birth_date, address, city, state, zip, emp_id, hire_date, salary, status, title, rating, sim_dept_dept_id
+SELECT person_id, name, ssnum, gender, birth_date, address, city, state, zip, hire_date, salary, status, title, rating, sim_dept_dept_id
 FROM SIM_Person
 WHERE TYPE = 'Project Employee' ;
 
@@ -21,7 +21,6 @@ BEGIN
         city,
         state,
         zip,
-        emp_id,
         hire_date,
         salary,
         status,
@@ -39,7 +38,6 @@ BEGIN
         :new.city,
         :new.state,
         :new.zip,
-        :new.emp_id,
         :new.hire_date,
         :new.salary,
         :new.status,
@@ -50,7 +48,7 @@ END;
 /
 
 create view s_manager as
-SELECT person_id, name, ssnum, gender, birth_date, address, city, state, zip, emp_id, hire_date, salary, status, title, bonus, sim_dept_dept_id
+SELECT person_id, name, ssnum, gender, birth_date, address, city, state, zip, hire_date, salary, status, title, bonus, sim_dept_dept_id
 FROM SIM_Person
 WHERE TYPE = 'Manager' ;
 
@@ -69,7 +67,6 @@ BEGIN
         city,
         state,
         zip,
-        emp_id,
         hire_date,
         salary,
         status,
@@ -87,7 +84,6 @@ BEGIN
         :new.city,
         :new.state,
         :new.zip,
-        :new.emp_id,
         :new.hire_date,
         :new.salary,
         :new.status,
