@@ -30,7 +30,7 @@ BEGIN
         sim_dept_dept_id)
      VALUES (
         :new.PERSON_ID,
-        'Employee',
+        'Project Employee',
         :new.NAME,
         :new.ssnum,
         :new.gender,
@@ -78,7 +78,7 @@ BEGIN
         sim_dept_dept_id)
      VALUES (
         :new.PERSON_ID,
-        'Employee',
+        'Manager',
         :new.NAME,
         :new.ssnum,
         :new.gender,
