@@ -1,14 +1,14 @@
-drop view emp;
-drop view project_emp;
-drop view manager;
+drop view s_emp;
+drop view s_project_emp;
+drop view s_manager;
 
-create view emp as
+create view s_emp as
 SELECT person_id, name, ssnum, gender, birth_date, address, city, state, zip, emp_id, hire_date, salary, status
 FROM SIM_Person
 WHERE TYPE = 'Employee' ;
 
-create or replace TRIGGER emp_trigger
-     INSTEAD OF insert ON emp
+create or replace TRIGGER s_emp_trigger
+     INSTEAD OF insert ON s_emp
      FOR EACH ROW
 BEGIN
      insert into SIM_Person(
@@ -44,13 +44,13 @@ BEGIN
 END;
 /
 
-create view project_emp as
+create view s_project_emp as
 SELECT person_id, name, ssnum, gender, birth_date, address, city, state, zip, emp_id, hire_date, salary, status, title, rating, sim_dept_dept_id
 FROM SIM_Person
 WHERE TYPE = 'Project Employee' ;
 
-create or replace TRIGGER proj_emp_trigger
-     INSTEAD OF insert ON project_emp
+create or replace TRIGGER s_proj_emp_trigger
+     INSTEAD OF insert ON s_project_emp
      FOR EACH ROW
 BEGIN
      insert into SIM_Person(
@@ -92,13 +92,13 @@ BEGIN
 END;
 /
 
-create view manager as
+create view s_manager as
 SELECT person_id, name, ssnum, gender, birth_date, address, city, state, zip, emp_id, hire_date, salary, status, title, bonus, sim_dept_dept_id
 FROM SIM_Person
 WHERE TYPE = 'Manager' ;
 
-create or replace TRIGGER manager_trigger
-     INSTEAD OF insert ON manager
+create or replace TRIGGER s_manager_trigger
+     INSTEAD OF insert ON s_manager
      FOR EACH ROW
 BEGIN
      insert into SIM_Person(
