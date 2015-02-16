@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="FCCD9D2F-0F23-BAE1-C361-2177F86E9D40">
+<createdBy>mark</createdBy>
+<createdTime>2015-02-16 17:08:28 UTC</createdTime>
+<ownerDesignName>SIM_logical_model</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>
