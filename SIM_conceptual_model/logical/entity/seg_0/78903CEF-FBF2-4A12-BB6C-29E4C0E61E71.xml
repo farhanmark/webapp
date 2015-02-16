@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="78903CEF-FBF2-4A12-BB6C-29E4C0E61E71" name="SIM_project_emp">
+<createdBy>mark</createdBy>
+<createdTime>2015-02-16 17:13:46 UTC</createdTime>
+<ownerDesignName>SIM_conceptual_model</ownerDesignName>
+<engineerTo>
+<item key="370708F0-A13A-B79A-5A53-F37220B4F7EF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>B602591D-F504-5001-111E-3506A74AA87F</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="title" id="A6D1CB09-0A31-884F-6CFB-EFBE6648EB51">
+<createdBy>mark</createdBy>
+<createdTime>2015-02-16 17:14:21 UTC</createdTime>
+<ownerDesignName>SIM_conceptual_model</ownerDesignName>
+<engineerTo>
+<item key="370708F0-A13A-B79A-5A53-F37220B4F7EF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+</Attribute>
+<Attribute name="rating" id="D0F97202-5D90-20D4-A217-90A8A7126BEE">
+<createdBy>mark</createdBy>
+<createdTime>2015-02-16 17:14:46 UTC</createdTime>
+<ownerDesignName>SIM_conceptual_model</ownerDesignName>
+<engineerTo>
+<item key="370708F0-A13A-B79A-5A53-F37220B4F7EF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+</Attribute>
+<Attribute name="dept_id" id="5128774F-90FE-F2B3-94FE-55921E3EE243">
+<createdBy>mark</createdBy>
+<createdTime>2015-02-16 17:20:04 UTC</createdTime>
+<generatorID>B59F3BAB-B085-4909-EBD1-9EB627E78882</generatorID>
+<ownerDesignName>SIM_conceptual_model</ownerDesignName>
+<engineerTo>
+<item key="370708F0-A13A-B79A-5A53-F37220B4F7EF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>A3B16B5D-406A-AFEA-A914-4C9766DC6FAA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+</attributes>
+</Entity>
