@@ -42,11 +42,10 @@ CREATE TABLE SIM_Person
     rating            VARCHAR2 (255) ,
     bonus             INTEGER ,
     SIM_dept_dept_id  INTEGER NOT NULL ,
-    SIM_dept_dept_id1 INTEGER
   ) ;
 CREATE UNIQUE INDEX SIM_Person__IDX ON SIM_Person
   (
-    SIM_dept_dept_id1 ASC
+    SIM_dept_dept_id ASC
   )
   ;
   ALTER TABLE SIM_Person ADD CONSTRAINT SIM_Person_PK PRIMARY KEY ( person_id ) ;
@@ -78,8 +77,6 @@ ALTER TABLE Project_ship ADD CONSTRAINT Project_ship_SIM_Person_FK FOREIGN KEY (
 ALTER TABLE Project_ship ADD CONSTRAINT Project_ship_SIM_project_FK FOREIGN KEY ( SIM_project_project_id ) REFERENCES SIM_project ( project_id ) ;
 
 ALTER TABLE SIM_Person ADD CONSTRAINT SIM_Person_SIM_dept_FK FOREIGN KEY ( SIM_dept_dept_id ) REFERENCES SIM_dept ( dept_id ) ;
-
-ALTER TABLE SIM_Person ADD CONSTRAINT SIM_Person_SIM_dept_FKv1 FOREIGN KEY ( SIM_dept_dept_id1 ) REFERENCES SIM_dept ( dept_id ) ;
 
 ALTER TABLE SIM_dept ADD CONSTRAINT SIM_dept_SIM_Person_FK FOREIGN KEY ( SIM_Person_person_id ) REFERENCES SIM_Person ( person_id ) ;
 

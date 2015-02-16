@@ -1,15 +1,15 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.logical.LogicalDesign>
-   <object objectType="Entity" objectID="EDD1BA49-FB79-EB5F-B97D-052462E712D3" name="SIM_Person" seqName="seg_0"/>
-   <object objectType="Entity" objectID="12A706F8-EEFB-A014-C154-B8CDFE980734" name="SIM_dept" seqName="seg_0"/>
    <object objectType="Entity" objectID="B602591D-F504-5001-111E-3506A74AA87F" name="SIM_emp" seqName="seg_0"/>
    <object objectType="Entity" objectID="FD90BBCB-8CD6-599A-3755-3ABD1E45161B" name="SIM_manager" seqName="seg_0"/>
+   <object objectType="Entity" objectID="EDD1BA49-FB79-EB5F-B97D-052462E712D3" name="SIM_Person" seqName="seg_0"/>
    <object objectType="Entity" objectID="C5419B19-903C-E2DC-0C33-39516A289D21" name="SIM_project" seqName="seg_0"/>
    <object objectType="Entity" objectID="78903CEF-FBF2-4A12-BB6C-29E4C0E61E71" name="SIM_project_emp" seqName="seg_0"/>
-   <object objectType="Relation" objectID="6923A537-7DDD-3832-C09E-F7EDEBD20394" name="r1" seqName="seg_0"/>
-   <object objectType="Relation" objectID="5FDF57D2-660A-5C83-3AC0-F9914D47636E" name="r2" seqName="seg_0"/>
-   <object objectType="Relation" objectID="B59F3BAB-B085-4909-EBD1-9EB627E78882" name="r3" seqName="seg_0"/>
+   <object objectType="Entity" objectID="12A706F8-EEFB-A014-C154-B8CDFE980734" name="SIM_dept" seqName="seg_0"/>
    <object objectType="Relation" objectID="17B2A67A-EA7C-0525-6636-5D86C9561866" name="r4" seqName="seg_0"/>
+   <object objectType="Relation" objectID="B59F3BAB-B085-4909-EBD1-9EB627E78882" name="r3" seqName="seg_0"/>
+   <object objectType="Relation" objectID="5FDF57D2-660A-5C83-3AC0-F9914D47636E" name="r2" seqName="seg_0"/>
+   <object objectType="Relation" objectID="6923A537-7DDD-3832-C09E-F7EDEBD20394" name="r1" seqName="seg_0"/>
    <object objectType="Hierarchy relation" objectID="9CD398BF-7CAE-2B17-26FD-C5D9320107D0" name="Hierarchy_1" seqName="seg_0"/>
    <object objectType="Hierarchy relation" objectID="495F4DBB-E86E-C56B-3E88-1DA07D3CC418" name="Hierarchy_2" seqName="seg_0"/>
    <object objectType="Hierarchy relation" objectID="B853B80F-E00E-6CA9-D2A9-B0A9803D24D2" name="Hierarchy_3" seqName="seg_0"/>
