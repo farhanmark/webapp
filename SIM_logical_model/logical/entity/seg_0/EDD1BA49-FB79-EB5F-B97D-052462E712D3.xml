@@ -235,6 +235,7 @@
 <engineerTo>
 <item key="370708F0-A13A-B79A-5A53-F37220B4F7EF" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <referedAttribute>A3B16B5D-406A-AFEA-A914-4C9766DC6FAA</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
