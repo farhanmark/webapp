@@ -48,7 +48,7 @@ END;
 /
 
 create view s_manager as
-SELECT person_id, type, name, ssnum, gender, birth_date, address, city, state, zip, hire_date, salary, status, title, bonus, sim_dept_dept_id
+SELECT person_id, type, name, ssnum, gender, birth_date, address, city, state, zip, hire_date, salary, status, title, bonus, sim_dept_dept_id1
 FROM SIM_Person
 WHERE TYPE = 'Manager' ;
 
