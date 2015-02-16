@@ -72,7 +72,7 @@ BEGIN
         status,
         title,
         bonus,
-        sim_dept_dept_id)
+        sim_dept_dept_id1)
      VALUES (
         :new.PERSON_ID,
         'Manager',
@@ -89,6 +89,6 @@ BEGIN
         :new.status,
         :new.title,
         :new.bonus,
-        :new.sim_dept_dept_id) ;
+        :new.sim_dept_dept_id1) ;
 END;
 /
