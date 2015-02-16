@@ -1,48 +1,5 @@
-drop view s_emp;
 drop view s_project_emp;
 drop view s_manager;
-
-create view s_emp as
-SELECT person_id, name, ssnum, gender, birth_date, address, city, state, zip, emp_id, hire_date, salary, status
-FROM SIM_Person
-WHERE TYPE = 'Employee' ;
-
-create or replace TRIGGER s_emp_trigger
-     INSTEAD OF insert ON s_emp
-     FOR EACH ROW
-BEGIN
-     insert into SIM_Person(
-        PERSON_ID,
-        TYPE,
-        NAME,
-        ssnum,
-        gender,
-        birth_date,
-        address,
-        city,
-        state,
-        zip,
-        emp_id,
-        hire_date,
-        salary,
-        status)
-     VALUES (
-        :new.PERSON_ID,
-        'Employee',
-        :new.NAME,
-        :new.ssnum,
-        :new.gender,
-        :new.birth_date,
-        :new.address,
-        :new.city,
-        :new.state,
-        :new.zip,
-        :new.emp_id,
-        :new.hire_date,
-        :new.salary,
-        :new.status) ;
-END;
-/
 
 create view s_project_emp as
 SELECT person_id, name, ssnum, gender, birth_date, address, city, state, zip, emp_id, hire_date, salary, status, title, rating, sim_dept_dept_id
