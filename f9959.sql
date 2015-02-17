@@ -27,7 +27,7 @@ prompt APPLICATION 9959 - farhanmark
 -- Application Export:
 --   Application:     9959
 --   Name:            farhanmark
---   Date and Time:   02:28 Tuesday February 17, 2015
+--   Date and Time:   02:39 Tuesday February 17, 2015
 --   Exported By:     M.MIM95@GMAIL.COM
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -108,7 +108,7 @@ wwv_flow_api.create_flow(
 ,p_rejoin_existing_sessions=>'N'
 ,p_csv_encoding=>'Y'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217022704'
+,p_last_upd_yyyymmddhh24miss=>'20150217023631'
 ,p_ui_type_name => null
 );
 end;
@@ -7506,7 +7506,7 @@ wwv_flow_api.create_page(
 ,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217022135'
+,p_last_upd_yyyymmddhh24miss=>'20150217023159'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(565099647047975627)
@@ -7547,9 +7547,9 @@ wwv_flow_api.create_page_plug(
 '       p.TITLE,',
 '       p.RATING,',
 '       p.BONUS,',
-'       p.SIM_DEPT_DEPT_ID,',
+'       p.SIM_DEPT_DEPT_ID as emp_dept_id,',
 '       d1.name as emp_dept_name,',
-'       p.SIM_DEPT_DEPT_ID1,',
+'       p.SIM_DEPT_DEPT_ID1 as mgr_dept_id,',
 '       d2.name as mgr_dept_name,',
 '       p.CREATED,',
 '       p.CREATED_BY,',
@@ -7731,26 +7731,6 @@ wwv_flow_api.create_worksheet_column(
 ,p_tz_dependent=>'N'
 );
 wwv_flow_api.create_worksheet_column(
- p_id=>wwv_flow_api.id(568514149663930173)
-,p_db_column_name=>'SIM_DEPT_DEPT_ID'
-,p_display_order=>17
-,p_column_identifier=>'Q'
-,p_column_label=>'Sim Dept Dept Id'
-,p_column_type=>'NUMBER'
-,p_column_alignment=>'RIGHT'
-,p_tz_dependent=>'N'
-);
-wwv_flow_api.create_worksheet_column(
- p_id=>wwv_flow_api.id(568514509620930173)
-,p_db_column_name=>'SIM_DEPT_DEPT_ID1'
-,p_display_order=>18
-,p_column_identifier=>'R'
-,p_column_label=>'Sim Dept Dept Id1'
-,p_column_type=>'NUMBER'
-,p_column_alignment=>'RIGHT'
-,p_tz_dependent=>'N'
-);
-wwv_flow_api.create_worksheet_column(
  p_id=>wwv_flow_api.id(568514999093930174)
 ,p_db_column_name=>'CREATED'
 ,p_display_order=>19
@@ -7814,6 +7794,26 @@ wwv_flow_api.create_worksheet_column(
 ,p_column_type=>'STRING'
 ,p_tz_dependent=>'N'
 );
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(575685792406049547)
+,p_db_column_name=>'EMP_DEPT_ID'
+,p_display_order=>26
+,p_column_identifier=>'Z'
+,p_column_label=>'Emp Dept Id'
+,p_column_type=>'NUMBER'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(575686197447049548)
+,p_db_column_name=>'MGR_DEPT_ID'
+,p_display_order=>27
+,p_column_identifier=>'AA'
+,p_column_label=>'Mgr Dept Id'
+,p_column_type=>'NUMBER'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
 wwv_flow_api.create_worksheet_rpt(
  p_id=>wwv_flow_api.id(568516944408930449)
 ,p_application_user=>'APXWS_DEFAULT'
@@ -7822,7 +7822,7 @@ wwv_flow_api.create_worksheet_rpt(
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
 ,p_display_rows=>50
-,p_report_columns=>'PERSON_ID:TYPE:NAME:SSNUM:GENDER:BIRTH_DATE:ADDRESS:CITY:STATE:ZIP:HIRE_DATE:SALARY:STATUS:TITLE:RATING:BONUS:SIM_DEPT_DEPT_ID:SIM_DEPT_DEPT_ID1:CREATED:CREATED_BY:ROW_VERSION_NUMBER:UPDATED:UPDATED_BY:EMP_DEPT_NAME:MGR_DEPT_NAME'
+,p_report_columns=>'PERSON_ID:TYPE:NAME:SSNUM:GENDER:BIRTH_DATE:ADDRESS:CITY:STATE:ZIP:HIRE_DATE:SALARY:STATUS:TITLE:RATING:BONUS:CREATED:CREATED_BY:ROW_VERSION_NUMBER:UPDATED:UPDATED_BY:EMP_DEPT_NAME:MGR_DEPT_NAME:EMP_DEPT_ID:MGR_DEPT_ID'
 ,p_flashback_enabled=>'N'
 );
 end;
@@ -7845,7 +7845,7 @@ wwv_flow_api.create_page(
 ,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217022150'
+,p_last_upd_yyyymmddhh24miss=>'20150217023237'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(565204446981084665)
@@ -7885,7 +7885,7 @@ wwv_flow_api.create_page_plug(
 'p."STATUS",',
 'p."TITLE",',
 'p."RATING",',
-'p."SIM_DEPT_DEPT_ID",',
+'p."SIM_DEPT_DEPT_ID" as dept_id,',
 'd.name as dept_name',
 'from "#OWNER#"."S_PROJECT_EMP" p',
 'left outer join sim_dept d',
@@ -8047,21 +8047,22 @@ wwv_flow_api.create_worksheet_column(
 ,p_tz_dependent=>'N'
 );
 wwv_flow_api.create_worksheet_column(
- p_id=>wwv_flow_api.id(568708687959957122)
-,p_db_column_name=>'SIM_DEPT_DEPT_ID'
-,p_display_order=>16
-,p_column_identifier=>'P'
-,p_column_label=>'Sim Dept Dept Id'
-,p_column_type=>'NUMBER'
-,p_tz_dependent=>'N'
-);
-wwv_flow_api.create_worksheet_column(
  p_id=>wwv_flow_api.id(570062380476096710)
 ,p_db_column_name=>'DEPT_NAME'
 ,p_display_order=>17
 ,p_column_identifier=>'Q'
 ,p_column_label=>'Dept Name'
 ,p_column_type=>'STRING'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(575746592421040460)
+,p_db_column_name=>'DEPT_ID'
+,p_display_order=>18
+,p_column_identifier=>'R'
+,p_column_label=>'Dept Id'
+,p_column_type=>'NUMBER'
+,p_column_alignment=>'RIGHT'
 ,p_tz_dependent=>'N'
 );
 wwv_flow_api.create_worksheet_rpt(
@@ -8072,7 +8073,7 @@ wwv_flow_api.create_worksheet_rpt(
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
 ,p_display_rows=>50
-,p_report_columns=>'PERSON_ID:TYPE:NAME:SSNUM:GENDER:BIRTH_DATE:ADDRESS:CITY:STATE:ZIP:HIRE_DATE:SALARY:STATUS:TITLE:RATING:SIM_DEPT_DEPT_ID:DEPT_NAME'
+,p_report_columns=>'PERSON_ID:TYPE:NAME:SSNUM:GENDER:BIRTH_DATE:ADDRESS:CITY:STATE:ZIP:HIRE_DATE:SALARY:STATUS:TITLE:RATING:DEPT_ID'
 ,p_flashback_enabled=>'N'
 );
 wwv_flow_api.create_page_button(
@@ -8197,7 +8198,7 @@ wwv_flow_api.create_page(
 ,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217022205'
+,p_last_upd_yyyymmddhh24miss=>'20150217023418'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(565459475833137389)
@@ -8237,7 +8238,7 @@ wwv_flow_api.create_page_plug(
 'm."STATUS",',
 'm."TITLE",',
 'm."BONUS",',
-'m."SIM_DEPT_DEPT_ID1",',
+'m."SIM_DEPT_DEPT_ID1" as dept_id,',
 'd.name as dept_name',
 'from "#OWNER#"."S_MANAGER" m',
 'left outer join sim_dept d',
@@ -8400,21 +8401,22 @@ wwv_flow_api.create_worksheet_column(
 ,p_tz_dependent=>'N'
 );
 wwv_flow_api.create_worksheet_column(
- p_id=>wwv_flow_api.id(569575856666055955)
-,p_db_column_name=>'SIM_DEPT_DEPT_ID1'
-,p_display_order=>16
-,p_column_identifier=>'P'
-,p_column_label=>'Sim Dept Dept Id1'
-,p_column_type=>'NUMBER'
-,p_tz_dependent=>'N'
-);
-wwv_flow_api.create_worksheet_column(
  p_id=>wwv_flow_api.id(570254700095113325)
 ,p_db_column_name=>'DEPT_NAME'
 ,p_display_order=>17
 ,p_column_identifier=>'Q'
 ,p_column_label=>'Dept Name'
 ,p_column_type=>'STRING'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(575795889788050478)
+,p_db_column_name=>'DEPT_ID'
+,p_display_order=>18
+,p_column_identifier=>'R'
+,p_column_label=>'Dept Id'
+,p_column_type=>'NUMBER'
+,p_column_alignment=>'RIGHT'
 ,p_tz_dependent=>'N'
 );
 wwv_flow_api.create_worksheet_rpt(
@@ -8425,7 +8427,7 @@ wwv_flow_api.create_worksheet_rpt(
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
 ,p_display_rows=>50
-,p_report_columns=>'PERSON_ID:TYPE:NAME:SSNUM:GENDER:BIRTH_DATE:ADDRESS:CITY:STATE:ZIP:HIRE_DATE:SALARY:STATUS:TITLE:BONUS:SIM_DEPT_DEPT_ID1:DEPT_NAME'
+,p_report_columns=>'PERSON_ID:TYPE:NAME:SSNUM:GENDER:BIRTH_DATE:ADDRESS:CITY:STATE:ZIP:HIRE_DATE:SALARY:STATUS:TITLE:BONUS:DEPT_NAME:DEPT_ID'
 ,p_flashback_enabled=>'N'
 );
 wwv_flow_api.create_page_button(
@@ -8599,7 +8601,7 @@ wwv_flow_api.create_page(
 ,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217022217'
+,p_last_upd_yyyymmddhh24miss=>'20150217023458'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(565580160995155412)
@@ -8627,7 +8629,7 @@ wwv_flow_api.create_page_plug(
 'select d."DEPT_ID", ',
 'd."NAME",',
 'd."LOCATION",',
-'d."SIM_PERSON_PERSON_ID",',
+'d."SIM_PERSON_PERSON_ID" as Mgr_person_id,',
 'p.name as mgr_name,',
 'd."CREATED",',
 'd."CREATED_BY",',
@@ -8687,15 +8689,6 @@ wwv_flow_api.create_worksheet_column(
 ,p_tz_dependent=>'N'
 );
 wwv_flow_api.create_worksheet_column(
- p_id=>wwv_flow_api.id(565619819732150552)
-,p_db_column_name=>'SIM_PERSON_PERSON_ID'
-,p_display_order=>4
-,p_column_identifier=>'D'
-,p_column_label=>'Sim Person Person Id'
-,p_column_type=>'NUMBER'
-,p_tz_dependent=>'N'
-);
-wwv_flow_api.create_worksheet_column(
  p_id=>wwv_flow_api.id(565620155488150552)
 ,p_db_column_name=>'CREATED'
 ,p_display_order=>5
@@ -8749,6 +8742,16 @@ wwv_flow_api.create_worksheet_column(
 ,p_column_type=>'STRING'
 ,p_tz_dependent=>'N'
 );
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(575843937380054537)
+,p_db_column_name=>'MGR_PERSON_ID'
+,p_display_order=>11
+,p_column_identifier=>'K'
+,p_column_label=>'Mgr Person Id'
+,p_column_type=>'NUMBER'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
 wwv_flow_api.create_worksheet_rpt(
  p_id=>wwv_flow_api.id(565604594515163710)
 ,p_application_user=>'APXWS_DEFAULT'
@@ -8757,7 +8760,7 @@ wwv_flow_api.create_worksheet_rpt(
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
 ,p_display_rows=>50
-,p_report_columns=>'DEPT_ID:NAME:LOCATION:SIM_PERSON_PERSON_ID:CREATED:CREATED_BY:ROW_VERSION_NUMBER:UPDATED:UPDATED_BY:MGR_NAME'
+,p_report_columns=>'DEPT_ID:NAME:LOCATION:CREATED:CREATED_BY:ROW_VERSION_NUMBER:UPDATED:UPDATED_BY:MGR_NAME:MGR_PERSON_ID'
 ,p_flashback_enabled=>'N'
 );
 wwv_flow_api.create_page_button(
@@ -9107,7 +9110,7 @@ wwv_flow_api.create_page(
 ,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217022235'
+,p_last_upd_yyyymmddhh24miss=>'20150217023531'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(565859919337204422)
@@ -9134,7 +9137,7 @@ wwv_flow_api.create_page_plug(
 ,p_plug_source=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
 'select p."PROJECT_ID", ',
 'p."NAME",',
-'p."SIM_DEPT_DEPT_ID",',
+'p."SIM_DEPT_DEPT_ID" as dept_id,',
 'd.name as dept_name,',
 'p."CREATED",',
 'p."CREATED_BY",',
@@ -9182,15 +9185,6 @@ wwv_flow_api.create_worksheet_column(
 ,p_column_identifier=>'B'
 ,p_column_label=>'Name'
 ,p_column_type=>'STRING'
-,p_tz_dependent=>'N'
-);
-wwv_flow_api.create_worksheet_column(
- p_id=>wwv_flow_api.id(565917907536209843)
-,p_db_column_name=>'SIM_DEPT_DEPT_ID'
-,p_display_order=>3
-,p_column_identifier=>'C'
-,p_column_label=>'Sim Dept Dept Id'
-,p_column_type=>'NUMBER'
 ,p_tz_dependent=>'N'
 );
 wwv_flow_api.create_worksheet_column(
@@ -9247,6 +9241,16 @@ wwv_flow_api.create_worksheet_column(
 ,p_column_type=>'STRING'
 ,p_tz_dependent=>'N'
 );
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(575687463556070816)
+,p_db_column_name=>'DEPT_ID'
+,p_display_order=>10
+,p_column_identifier=>'J'
+,p_column_label=>'Dept Id'
+,p_column_type=>'NUMBER'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
 wwv_flow_api.create_worksheet_rpt(
  p_id=>wwv_flow_api.id(565922656928210074)
 ,p_application_user=>'APXWS_DEFAULT'
@@ -9255,7 +9259,7 @@ wwv_flow_api.create_worksheet_rpt(
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
 ,p_display_rows=>50
-,p_report_columns=>'PROJECT_ID:NAME:SIM_DEPT_DEPT_ID:CREATED:CREATED_BY:ROW_VERSION_NUMBER:UPDATED:UPDATED_BY:DEPT_NAME'
+,p_report_columns=>'PROJECT_ID:NAME:CREATED_BY:ROW_VERSION_NUMBER:UPDATED:UPDATED_BY:DEPT_NAME:DEPT_ID'
 ,p_flashback_enabled=>'N'
 );
 wwv_flow_api.create_page_button(
@@ -9584,7 +9588,7 @@ wwv_flow_api.create_page(
 ,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217022252'
+,p_last_upd_yyyymmddhh24miss=>'20150217023631'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(566035631348224020)
@@ -9610,9 +9614,9 @@ wwv_flow_api.create_page_plug(
 ,p_plug_display_point=>'BODY'
 ,p_plug_source=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
 'select prsh."PROJECT_SHIP_ID", ',
-'prsh."SIM_PERSON_PERSON_ID",',
-'pe.name as project_member,',
-'prsh."SIM_PROJECT_PROJECT_ID",',
+'prsh."SIM_PERSON_PERSON_ID" as project_emp_id,',
+'pe.name as project_employee,',
+'prsh."SIM_PROJECT_PROJECT_ID" as project_id,',
 'pr.name as projecT_name,',
 'prsh."CREATED",',
 'prsh."CREATED_BY",',
@@ -9652,24 +9656,6 @@ wwv_flow_api.create_worksheet_column(
 ,p_display_order=>1
 ,p_column_identifier=>'A'
 ,p_column_label=>'Project Ship Id'
-,p_column_type=>'NUMBER'
-,p_tz_dependent=>'N'
-);
-wwv_flow_api.create_worksheet_column(
- p_id=>wwv_flow_api.id(566075164886229549)
-,p_db_column_name=>'SIM_PERSON_PERSON_ID'
-,p_display_order=>2
-,p_column_identifier=>'B'
-,p_column_label=>'Sim Person Person Id'
-,p_column_type=>'NUMBER'
-,p_tz_dependent=>'N'
-);
-wwv_flow_api.create_worksheet_column(
- p_id=>wwv_flow_api.id(566075549304229549)
-,p_db_column_name=>'SIM_PROJECT_PROJECT_ID'
-,p_display_order=>3
-,p_column_identifier=>'C'
-,p_column_label=>'Sim Project Project Id'
 ,p_column_type=>'NUMBER'
 ,p_tz_dependent=>'N'
 );
@@ -9719,21 +9705,41 @@ wwv_flow_api.create_worksheet_column(
 ,p_tz_dependent=>'N'
 );
 wwv_flow_api.create_worksheet_column(
- p_id=>wwv_flow_api.id(570718548307157110)
-,p_db_column_name=>'PROJECT_MEMBER'
-,p_display_order=>9
-,p_column_identifier=>'I'
-,p_column_label=>'Project Member'
-,p_column_type=>'STRING'
-,p_tz_dependent=>'N'
-);
-wwv_flow_api.create_worksheet_column(
  p_id=>wwv_flow_api.id(570718933684157110)
 ,p_db_column_name=>'PROJECT_NAME'
 ,p_display_order=>10
 ,p_column_identifier=>'J'
 ,p_column_label=>'Project Name'
 ,p_column_type=>'STRING'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(575918845296063848)
+,p_db_column_name=>'PROJECT_EMP_ID'
+,p_display_order=>11
+,p_column_identifier=>'K'
+,p_column_label=>'Project Emp Id'
+,p_column_type=>'NUMBER'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(575919296903063849)
+,p_db_column_name=>'PROJECT_EMPLOYEE'
+,p_display_order=>12
+,p_column_identifier=>'L'
+,p_column_label=>'Project Employee'
+,p_column_type=>'STRING'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(575919682780063849)
+,p_db_column_name=>'PROJECT_ID'
+,p_display_order=>13
+,p_column_identifier=>'M'
+,p_column_label=>'Project Id'
+,p_column_type=>'NUMBER'
+,p_column_alignment=>'RIGHT'
 ,p_tz_dependent=>'N'
 );
 wwv_flow_api.create_worksheet_rpt(
@@ -9744,7 +9750,7 @@ wwv_flow_api.create_worksheet_rpt(
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
 ,p_display_rows=>50
-,p_report_columns=>'PROJECT_SHIP_ID:SIM_PERSON_PERSON_ID:SIM_PROJECT_PROJECT_ID:CREATED:CREATED_BY:ROW_VERSION_NUMBER:UPDATED:UPDATED_BY:PROJECT_MEMBER:PROJECT_NAME'
+,p_report_columns=>'PROJECT_SHIP_ID:CREATED_BY:ROW_VERSION_NUMBER:UPDATED:UPDATED_BY:PROJECT_NAME:PROJECT_EMP_ID:PROJECT_EMPLOYEE:PROJECT_ID'
 ,p_flashback_enabled=>'N'
 );
 wwv_flow_api.create_page_button(
