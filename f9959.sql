@@ -27,7 +27,7 @@ prompt APPLICATION 9959 - farhanmark
 -- Application Export:
 --   Application:     9959
 --   Name:            farhanmark
---   Date and Time:   00:35 Tuesday February 17, 2015
+--   Date and Time:   02:28 Tuesday February 17, 2015
 --   Exported By:     M.MIM95@GMAIL.COM
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -40,7 +40,7 @@ prompt APPLICATION 9959 - farhanmark
 --     Items:                   42
 --     Processes:               24
 --     Regions:                 24
---     Buttons:                 29
+--     Buttons:                 35
 --     Dynamic Actions:         21
 --   Shared Components:
 --     Logic:
@@ -62,7 +62,7 @@ prompt APPLICATION 9959 - farhanmark
 --         Breadcrumb:           1
 --         Button:               3
 --         Report:               8
---       LOVs:                   3
+--       LOVs:                   4
 --       Shortcuts:              1
 --     Globalization:
 --     Reports:
@@ -101,13 +101,14 @@ wwv_flow_api.create_flow(
 ,p_proxy_server=> nvl(wwv_flow_application_install.get_proxy,'')
 ,p_flow_version=>'release 1.0'
 ,p_flow_status=>'AVAILABLE_W_EDIT_LINK'
+,p_flow_unavailable_text=>'This application is currently unavailable at this time.'
 ,p_exact_substitutions_only=>'Y'
 ,p_browser_cache=>'N'
 ,p_browser_frame=>'D'
 ,p_rejoin_existing_sessions=>'N'
 ,p_csv_encoding=>'Y'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217003431'
+,p_last_upd_yyyymmddhh24miss=>'20150217022704'
 ,p_ui_type_name => null
 );
 end;
@@ -282,6 +283,16 @@ wwv_flow_api.create_list_of_values(
 '       project_id as r',
 '  from sim_project',
 ' order by 1'))
+);
+wwv_flow_api.create_list_of_values(
+ p_id=>wwv_flow_api.id(575564185293004468)
+,p_lov_name=>'PROJEMPS'
+,p_lov_query=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+'select name as d,',
+'       person_id as r',
+'  from sim_person',
+'where type = ''Project Employee''',
+'order by 1'))
 );
 end;
 /
@@ -7454,10 +7465,12 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_chained=>'Y'
 ,p_overwrite_navigation_list=>'N'
-,p_page_is_public_y_n=>'N'
+,p_page_is_public_y_n=>'Y'
 ,p_cache_mode=>'NOCACHE'
+,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
-,p_last_upd_yyyymmddhh24miss=>'20150216185848'
+,p_last_updated_by=>'M.MIM95@GMAIL.COM'
+,p_last_upd_yyyymmddhh24miss=>'20150217004754'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(564505634149330896)
@@ -7488,11 +7501,12 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_chained=>'Y'
 ,p_overwrite_navigation_list=>'N'
-,p_page_is_public_y_n=>'N'
+,p_page_is_public_y_n=>'Y'
 ,p_cache_mode=>'NOCACHE'
+,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217002039'
+,p_last_upd_yyyymmddhh24miss=>'20150217022135'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(565099647047975627)
@@ -7826,11 +7840,12 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_chained=>'Y'
 ,p_overwrite_navigation_list=>'N'
-,p_page_is_public_y_n=>'N'
+,p_page_is_public_y_n=>'Y'
 ,p_cache_mode=>'NOCACHE'
+,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150216235519'
+,p_last_upd_yyyymmddhh24miss=>'20150217022150'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(565204446981084665)
@@ -7873,7 +7888,7 @@ wwv_flow_api.create_page_plug(
 'p."SIM_DEPT_DEPT_ID",',
 'd.name as dept_name',
 'from "#OWNER#"."S_PROJECT_EMP" p',
-'join sim_dept d',
+'left outer join sim_dept d',
 'on d.dept_id = p.sim_dept_dept_id',
 ''))
 ,p_plug_source_type=>'NATIVE_IR'
@@ -8177,11 +8192,12 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_chained=>'Y'
 ,p_overwrite_navigation_list=>'N'
-,p_page_is_public_y_n=>'N'
+,p_page_is_public_y_n=>'Y'
 ,p_cache_mode=>'NOCACHE'
+,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150216235805'
+,p_last_upd_yyyymmddhh24miss=>'20150217022205'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(565459475833137389)
@@ -8224,7 +8240,7 @@ wwv_flow_api.create_page_plug(
 'm."SIM_DEPT_DEPT_ID1",',
 'd.name as dept_name',
 'from "#OWNER#"."S_MANAGER" m',
-'join sim_dept d',
+'left outer join sim_dept d',
 'on d.dept_id = m.sim_dept_dept_id1',
 '  ',
 ''))
@@ -8578,11 +8594,12 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_chained=>'Y'
 ,p_overwrite_navigation_list=>'N'
-,p_page_is_public_y_n=>'N'
+,p_page_is_public_y_n=>'Y'
 ,p_cache_mode=>'NOCACHE'
+,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217000001'
+,p_last_upd_yyyymmddhh24miss=>'20150217022217'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(565580160995155412)
@@ -8618,7 +8635,7 @@ wwv_flow_api.create_page_plug(
 'd."UPDATED",',
 'd."UPDATED_BY"',
 'from "#OWNER#"."SIM_DEPT" d',
-'join sim_person p',
+'left outer join sim_person p',
 'on d.sim_person_person_id = p.person_id',
 '  ',
 ''))
@@ -8812,13 +8829,13 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_chained=>'Y'
 ,p_overwrite_navigation_list=>'N'
-,p_page_is_public_y_n=>'N'
+,p_page_is_public_y_n=>'Y'
 ,p_protection_level=>'C'
 ,p_cache_mode=>'NOCACHE'
 ,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217002401'
+,p_last_upd_yyyymmddhh24miss=>'20150217021825'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(565611176513150535)
@@ -8845,6 +8862,21 @@ wwv_flow_api.create_page_plug(
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'TEXT'
 ,p_attribute_03=>'Y'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(574906739187884304)
+,p_button_sequence=>50
+,p_button_plug_id=>wwv_flow_api.id(565611176513150535)
+,p_button_name=>'CREATE_MANAGER_BUTTON'
+,p_button_static_id=>'CREATE_MANAGER_BUTTON'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_id=>wwv_flow_api.id(564498654695330780)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create Manager'
+,p_button_position=>'BODY'
+,p_button_redirect_url=>'f?p=&APP_ID.:16:&SESSION.::&DEBUG.:::'
+,p_grid_new_row=>'N'
+,p_grid_new_column=>'Y'
 );
 wwv_flow_api.create_page_button(
  p_id=>wwv_flow_api.id(565612258086150536)
@@ -8981,6 +9013,7 @@ wwv_flow_api.create_page_item(
 '       person_id as r',
 '  from sim_person',
 ' order by 1'))
+,p_lov_display_null=>'YES'
 ,p_cSize=>32
 ,p_cMaxlength=>255
 ,p_cHeight=>1
@@ -9069,11 +9102,12 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_chained=>'Y'
 ,p_overwrite_navigation_list=>'N'
-,p_page_is_public_y_n=>'N'
+,p_page_is_public_y_n=>'Y'
 ,p_cache_mode=>'NOCACHE'
+,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217000158'
+,p_last_upd_yyyymmddhh24miss=>'20150217022235'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(565859919337204422)
@@ -9108,7 +9142,7 @@ wwv_flow_api.create_page_plug(
 'p."UPDATED",',
 'p."UPDATED_BY"',
 'from "#OWNER#"."SIM_PROJECT" p',
-'join sim_dept d',
+'left outer join sim_dept d',
 'on p.sim_dept_dept_id = d.dept_id',
 '  ',
 ''))
@@ -9293,13 +9327,13 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_chained=>'Y'
 ,p_overwrite_navigation_list=>'N'
-,p_page_is_public_y_n=>'N'
+,p_page_is_public_y_n=>'Y'
 ,p_protection_level=>'C'
 ,p_cache_mode=>'NOCACHE'
 ,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217003431'
+,p_last_upd_yyyymmddhh24miss=>'20150217021838'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(565910171929209828)
@@ -9326,6 +9360,21 @@ wwv_flow_api.create_page_plug(
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'TEXT'
 ,p_attribute_03=>'Y'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(575011772699904899)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_api.id(565910171929209828)
+,p_button_name=>'CREATE_DEPT_BUTTON'
+,p_button_static_id=>'CREATE_DEPT_BUTTON'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_id=>wwv_flow_api.id(564498654695330780)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create Department'
+,p_button_position=>'BODY'
+,p_button_redirect_url=>'f?p=&APP_ID.:9:&SESSION.::&DEBUG.:::'
+,p_grid_new_row=>'N'
+,p_grid_new_column=>'Y'
 );
 wwv_flow_api.create_page_button(
  p_id=>wwv_flow_api.id(565911219422209828)
@@ -9441,6 +9490,7 @@ wwv_flow_api.create_page_item(
 '       dept_id as r',
 '  from sim_dept',
 ' order by 1'))
+,p_lov_display_null=>'YES'
 ,p_cSize=>32
 ,p_cMaxlength=>255
 ,p_cHeight=>1
@@ -9529,12 +9579,12 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_chained=>'Y'
 ,p_overwrite_navigation_list=>'N'
-,p_page_is_public_y_n=>'N'
+,p_page_is_public_y_n=>'Y'
 ,p_cache_mode=>'NOCACHE'
 ,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217003250'
+,p_last_upd_yyyymmddhh24miss=>'20150217022252'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(566035631348224020)
@@ -9570,9 +9620,9 @@ wwv_flow_api.create_page_plug(
 'prsh."UPDATED",',
 'prsh."UPDATED_BY"',
 'from "#OWNER#"."PROJECT_SHIP" prsh',
-'join sim_person pe',
+'left outer join sim_person pe',
 'on prsh.sim_person_person_id = pe.person_id',
-'join sim_project pr',
+'left outer join sim_project pr',
 'on prsh.sim_project_project_id = pr.project_id',
 '  ',
 ''))
@@ -9766,13 +9816,13 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_chained=>'Y'
 ,p_overwrite_navigation_list=>'N'
-,p_page_is_public_y_n=>'N'
+,p_page_is_public_y_n=>'Y'
 ,p_protection_level=>'C'
 ,p_cache_mode=>'NOCACHE'
 ,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217003039'
+,p_last_upd_yyyymmddhh24miss=>'20150217022704'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(566067702002229536)
@@ -9799,6 +9849,36 @@ wwv_flow_api.create_page_plug(
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'TEXT'
 ,p_attribute_03=>'Y'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(575095581754908399)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_api.id(566067702002229536)
+,p_button_name=>'CREATE_PROJECT_EMP_BUTTON'
+,p_button_static_id=>'CREATE_PROJECT_EMP_BUTTON'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_id=>wwv_flow_api.id(564498654695330780)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create Project Employee'
+,p_button_position=>'BODY'
+,p_button_redirect_url=>'f?p=&APP_ID.:14:&SESSION.::&DEBUG.:::'
+,p_grid_new_row=>'N'
+,p_grid_new_column=>'Y'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(575097493018913108)
+,p_button_sequence=>50
+,p_button_plug_id=>wwv_flow_api.id(566067702002229536)
+,p_button_name=>'CREATE_PROJECT_BUTTON'
+,p_button_static_id=>'CREATE_PROJECT_BUTTON'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_id=>wwv_flow_api.id(564498654695330780)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create Project'
+,p_button_position=>'BODY'
+,p_button_redirect_url=>'f?p=&APP_ID.:11:&SESSION.::&DEBUG.:::'
+,p_grid_new_row=>'N'
+,p_grid_new_column=>'Y'
 );
 wwv_flow_api.create_page_button(
  p_id=>wwv_flow_api.id(566068841136229537)
@@ -9887,12 +9967,14 @@ wwv_flow_api.create_page_item(
 ,p_source=>'SIM_PERSON_PERSON_ID'
 ,p_source_type=>'DB_COLUMN'
 ,p_display_as=>'NATIVE_SELECT_LIST'
-,p_named_lov=>'PEOPLE'
+,p_named_lov=>'PROJEMPS'
 ,p_lov=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
 'select name as d,',
 '       person_id as r',
 '  from sim_person',
-' order by 1'))
+'where type = ''Project Employee''',
+'order by 1'))
+,p_lov_display_null=>'YES'
 ,p_cSize=>32
 ,p_cMaxlength=>255
 ,p_cHeight=>1
@@ -9906,7 +9988,7 @@ wwv_flow_api.create_page_item(
 wwv_flow_api.create_page_item(
  p_id=>wwv_flow_api.id(566071925109229545)
 ,p_name=>'P13_SIM_PROJECT_PROJECT_ID'
-,p_item_sequence=>30
+,p_item_sequence=>40
 ,p_item_plug_id=>wwv_flow_api.id(566067702002229536)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'Project'
@@ -9919,10 +10001,9 @@ wwv_flow_api.create_page_item(
 '       project_id as r',
 '  from sim_project',
 ' order by 1'))
-,p_cSize=>32
-,p_cMaxlength=>255
+,p_lov_display_null=>'YES'
+,p_cSize=>30
 ,p_cHeight=>1
-,p_label_alignment=>'RIGHT'
 ,p_field_template=>wwv_flow_api.id(564498141732330612)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'YES'
@@ -10008,13 +10089,13 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_chained=>'Y'
 ,p_overwrite_navigation_list=>'N'
-,p_page_is_public_y_n=>'N'
+,p_page_is_public_y_n=>'Y'
 ,p_protection_level=>'C'
 ,p_cache_mode=>'NOCACHE'
 ,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217002939'
+,p_last_upd_yyyymmddhh24miss=>'20150217021935'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(568686559793957101)
@@ -10041,6 +10122,21 @@ wwv_flow_api.create_page_plug(
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'TEXT'
 ,p_attribute_03=>'Y'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(575012239272934586)
+,p_button_sequence=>160
+,p_button_plug_id=>wwv_flow_api.id(568686559793957101)
+,p_button_name=>'CREATE_DEPT_BUTTON'
+,p_button_static_id=>'CREATE_DEPT_BUTTON'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_id=>wwv_flow_api.id(564498654695330780)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create Department'
+,p_button_position=>'BODY'
+,p_button_redirect_url=>'f?p=&APP_ID.:9:&SESSION.::&DEBUG.:::'
+,p_grid_new_row=>'N'
+,p_grid_new_column=>'Y'
 );
 wwv_flow_api.create_page_button(
  p_id=>wwv_flow_api.id(568687657634957101)
@@ -10397,6 +10493,7 @@ wwv_flow_api.create_page_item(
 '       dept_id as r',
 '  from sim_dept',
 ' order by 1'))
+,p_lov_display_null=>'YES'
 ,p_cSize=>32
 ,p_cMaxlength=>255
 ,p_cHeight=>1
@@ -10486,13 +10583,13 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_chained=>'Y'
 ,p_overwrite_navigation_list=>'N'
-,p_page_is_public_y_n=>'N'
+,p_page_is_public_y_n=>'Y'
 ,p_protection_level=>'C'
 ,p_cache_mode=>'NOCACHE'
 ,p_cache_timeout_seconds=>21600
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'M.MIM95@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150217002857'
+,p_last_upd_yyyymmddhh24miss=>'20150217021953'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(569553771957055935)
@@ -10519,6 +10616,21 @@ wwv_flow_api.create_page_plug(
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'TEXT'
 ,p_attribute_03=>'Y'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(575164036238928964)
+,p_button_sequence=>160
+,p_button_plug_id=>wwv_flow_api.id(569553771957055935)
+,p_button_name=>'CREATE_DEPT_BUTTON'
+,p_button_static_id=>'CREATE_DEPT_BUTTON'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_id=>wwv_flow_api.id(564498654695330780)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create Department'
+,p_button_position=>'BODY'
+,p_button_redirect_url=>'f?p=&APP_ID.:9:&SESSION.::&DEBUG.:::'
+,p_grid_new_row=>'N'
+,p_grid_new_column=>'Y'
 );
 wwv_flow_api.create_page_button(
  p_id=>wwv_flow_api.id(569554800507055936)
@@ -10872,6 +10984,7 @@ wwv_flow_api.create_page_item(
 '       dept_id as r',
 '  from sim_dept',
 ' order by 1'))
+,p_lov_display_null=>'YES'
 ,p_cSize=>32
 ,p_cMaxlength=>255
 ,p_cHeight=>1
