@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="76BEE54F-A5C3-F5C0-C736-642599669A5B" name="Project_ship">
+<createdBy>mark</createdBy>
+<createdTime>2015-02-16 21:48:13 UTC</createdTime>
+<generatorID>F7D85197-7896-D0B3-DAC5-71B73CE51391</generatorID>
+<ownerDesignName>SIM_logical_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="project_ship_id" id="2F77E120-1EC9-A799-93D8-B318A5A86806">
+<createdBy>mark</createdBy>
+<createdTime>2015-02-16 21:48:13 UTC</createdTime>
+<generatorID>014A3D8E-9B46-546B-75EB-9C7387D3278A</generatorID>
+<ownerDesignName>SIM_logical_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SIM_Person_person_id" id="F1490026-2D4E-AB58-AAFC-DF681BC1696D">
+<createdBy>mark</createdBy>
+<createdTime>2015-02-16 21:48:13 UTC</createdTime>
+<generatorID>3EFC4C94-D93F-D319-A58C-E1CE4E7F9718</generatorID>
+<ownerDesignName>SIM_logical_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>A651A03A-E31C-4472-F7F6-8B9ACA46D2F5</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D39EC65F-45B7-A1CF-4EB4-8BCCEFE24544" referredColumn="A651A03A-E31C-4472-F7F6-8B9ACA46D2F5"/>
+</associations>
+</Column>
+<Column name="SIM_project_project_id" id="BB520DB0-9696-850A-6632-2D688DEA1ACC">
+<createdBy>mark</createdBy>
+<createdTime>2015-02-16 21:48:13 UTC</createdTime>
+<generatorID>82A68B6F-51CD-9476-3995-7A2EDD1B1AAC</generatorID>
+<ownerDesignName>SIM_logical_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>3BF14BD5-39F6-879B-61E4-D1E1A029DAEB</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="53083FD0-E5F6-F477-5B6B-E7FB6352942C" referredColumn="3BF14BD5-39F6-879B-61E4-D1E1A029DAEB"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="93D85CA0-0ECE-D040-4148-924608BB05E2" name="Project_ship_PK">
+<createdBy>mark</createdBy>
+<createdTime>2015-02-16 21:48:13 UTC</createdTime>
+<generatorID>3B8F4C00-BFBA-311F-9F02-969EC073A9E7</generatorID>
+<ownerDesignName>SIM_logical_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2F77E120-1EC9-A799-93D8-B318A5A86806"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DC7B73F0-4A81-3290-61D4-A1F166939492" name="Project_ship_SIM_Person_FK">
+<createdBy>mark</createdBy>
+<createdTime>2015-02-16 21:48:13 UTC</createdTime>
+<generatorID>53F58B0E-F67C-FF1F-0093-6D03CA917BF9</generatorID>
+<ownerDesignName>SIM_logical_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F1490026-2D4E-AB58-AAFC-DF681BC1696D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AD35E0E7-98B8-AD8B-8CA5-D327CA2C7FB6" name="Project_ship_SIM_project_FK">
+<createdBy>mark</createdBy>
+<createdTime>2015-02-16 21:48:13 UTC</createdTime>
+<generatorID>6E4B48D6-D846-ACFD-B5DD-7084834F3BE5</generatorID>
+<ownerDesignName>SIM_logical_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BB520DB0-9696-850A-6632-2D688DEA1ACC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
